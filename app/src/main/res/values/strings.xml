@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Binobo Connector</string>
-    <string name="calibration_string">Please place your hand flat on a flat surface (a table) with your fingers stretched out.<br /><br />With your hand flat, press this button:</string>
+    <string name="calibration_string">Please place your hand flat on a flat surface (a table) with your fingers stretched out.<br /> <br />With your hand flat, press this button:</string>
 </resources>

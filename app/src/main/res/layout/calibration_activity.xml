@@ -30,21 +30,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/calibrationTextView"
-        android:layout_width="748dp"
-        android:layout_height="145dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="749dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/roboto_mono"
         android:text="@string/calibration_string"
         android:textAlignment="center"
         android:textColor="@color/binobo_orange"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/page4_heading" />
-
 
     <Button
         android:id="@+id/calibrate"

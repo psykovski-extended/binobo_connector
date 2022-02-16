@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#222">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="107dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_icon_v2_or" />
+
+    <TextView
+        android:id="@+id/page3_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_mono"
+        android:text="Enter Token"
+        android:textColor="@color/binobo_orange"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/token"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="112dp"
+        android:background="#333"
+        android:ems="10"
+        android:fontFamily="@font/roboto_mono"
+        android:inputType="textPersonName"
+        android:padding="10sp"
+        android:text="Your unique token"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.618"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/page3_heading" />
+
+    <TextView
+        android:id="@+id/token_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_mono"
+        android:text="Token:"
+        android:textColor="@color/binobo_orange"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/token"
+        app:layout_constraintEnd_toStartOf="@+id/token"
+        app:layout_constraintHorizontal_bias="0.795"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/token"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/validate"
+        android:layout_width="254dp"
+        android:layout_height="55dp"
+        android:backgroundTint="#333"
+        android:fontFamily="@font/roboto_mono"
+        android:text="Validate"
+        android:textColor="@color/binobo_orange"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/page3_heading"
+        app:layout_constraintStart_toStartOf="@+id/page3_heading"
+        app:layout_constraintTop_toBottomOf="@+id/token"
+        app:layout_constraintVertical_bias="0.705" />
+
+    <TextView
+        android:id="@+id/info_token"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/roboto_mono"
+        android:text="You can find your token at the emulator page!"
+        android:textColor="@color/teal_700"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/token"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="@+id/token_label"
+        app:layout_constraintTop_toBottomOf="@+id/token" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="37dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/info_token"
+        app:layout_constraintEnd_toStartOf="@+id/info_token"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/info_token"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_information" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

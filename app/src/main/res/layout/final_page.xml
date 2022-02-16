@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#222">
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="107dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_icon_v2_or" />
+
+    <TextView
+        android:id="@+id/page5_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_mono"
+        android:text="You are done! Have fun!"
+        android:textColor="@color/binobo_orange"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/recalibrate"
+        android:layout_width="254dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="96dp"
+        android:backgroundTint="#333"
+        android:fontFamily="@font/roboto_mono"
+        android:text="Recalibrate"
+        android:textColor="@color/binobo_orange"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/page5_heading"
+        app:layout_constraintStart_toStartOf="@+id/page5_heading"
+        app:layout_constraintTop_toBottomOf="@+id/page5_heading" />
+
+    <Button
+        android:id="@+id/stop_btn"
+        android:layout_width="254dp"
+        android:layout_height="55dp"
+        android:backgroundTint="#333"
+        android:fontFamily="@font/roboto_mono"
+        android:text="Stop"
+        android:textColor="@color/binobo_orange"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/recalibrate"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/recalibrate"
+        app:layout_constraintTop_toBottomOf="@+id/recalibrate"
+        app:layout_constraintVertical_bias="0.293" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

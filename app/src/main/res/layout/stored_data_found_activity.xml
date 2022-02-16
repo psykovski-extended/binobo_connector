@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#222">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="107dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_icon_v2_or" />
+
+    <TextView
+        android:id="@+id/page2_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_mono"
+        android:text="Found stored config-data"
+        android:textColor="@color/binobo_orange"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ssid_sd"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="36dp"
+        android:background="#333"
+        android:editable="false"
+        android:ems="10"
+        android:fontFamily="@font/roboto_mono"
+        android:inputType="textPersonName"
+        android:padding="10sp"
+        android:text="WIFI_SSID"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.646"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/page2_heading" />
+
+    <EditText
+        android:id="@+id/password_sd"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:background="#333"
+        android:editable="false"
+        android:ems="10"
+        android:fontFamily="@font/roboto_mono"
+        android:inputType="textPersonName"
+        android:padding="10sp"
+        android:text="Top_Secret"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/password_label_sd"
+        app:layout_constraintEnd_toEndOf="@+id/ssid_sd"
+        app:layout_constraintTop_toTopOf="@+id/password_label_sd"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/token_sd"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:background="#333"
+        android:editable="false"
+        android:ems="10"
+        android:fontFamily="@font/roboto_mono"
+        android:inputType="textPersonName"
+        android:padding="10sp"
+        android:text="Your unique token"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/token_label_sd"
+        app:layout_constraintEnd_toEndOf="@+id/password_sd"
+        app:layout_constraintTop_toTopOf="@+id/token_label_sd" />
+
+    <TextView
+        android:id="@+id/ssid_label_sd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_mono"
+        android:text="SSID:"
+        android:textColor="@color/binobo_orange"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ssid_sd"
+        app:layout_constraintEnd_toStartOf="@+id/ssid_sd"
+        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ssid_sd"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/password_label_sd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_mono"
+        android:text="Password:"
+        android:textColor="@color/binobo_orange"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/ssid_label_sd"
+        app:layout_constraintTop_toBottomOf="@+id/ssid_label_sd"
+        app:layout_constraintVertical_bias="0.171" />
+
+    <TextView
+        android:id="@+id/token_label_sd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Token:"
+        android:textColor="@color/binobo_orange"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="@+id/password_label_sd"
+        app:layout_constraintTop_toBottomOf="@+id/password_label_sd" />
+
+
+    <Button
+        android:id="@+id/do_not_use_data"
+        android:layout_width="254dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#333"
+        android:fontFamily="@font/roboto_mono"
+        android:text="Do not use"
+        android:textColor="@color/binobo_orange"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/page2_heading" />
+
+    <Button
+        android:id="@+id/use_date"
+        android:layout_width="254dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="#333"
+        android:fontFamily="@font/roboto_mono"
+        android:text="Use data"
+        android:textColor="@color/binobo_orange"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/do_not_use_data"
+        app:layout_constraintEnd_toStartOf="@+id/do_not_use_data"
+        app:layout_constraintStart_toStartOf="@+id/password_label_sd"
+        app:layout_constraintTop_toTopOf="@+id/do_not_use_data" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

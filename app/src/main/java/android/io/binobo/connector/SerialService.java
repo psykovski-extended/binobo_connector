@@ -5,7 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
+import android.os.Binder;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.provider.SyncStateContract;
 import android.widget.Toast;
 
@@ -22,19 +25,22 @@ import java.util.List;
 
 public class SerialService extends Service implements SerialInputOutputManager.Listener {
 
-    private enum QueueType {Connect, Read}
+    class SerialBinder extends Binder {
+        SerialService getService() { return SerialService.this; }
+    }
 
-    private static class QueueItem {
-        QueueType type;
-        byte[] data;
+    private final Handler mainLooper;
+    private final IBinder binder;
 
-        QueueItem(QueueType type, byte[] data) { this.type=type; this.data=data; }
+    public SerialService() {
+        mainLooper = new Handler(Looper.getMainLooper());
+        binder = new SerialBinder();
     }
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return binder;
     }
 
     @Override
@@ -62,14 +68,15 @@ public class SerialService extends Service implements SerialInputOutputManager.L
             SerialInputOutputManager serialInputOutputManager = new SerialInputOutputManager(port, this);
             serialInputOutputManager.start();
 
-            port.write("\n".getBytes(StandardCharsets.UTF_8), 1); // get initial state
+            Toast.makeText(this, "Connection successfully established!", Toast.LENGTH_LONG).show();
 
             Globals.connection = connection;
             Globals.port = port;
             Globals.usbSerialDriver = driver;
             Globals.serialIOManager = serialInputOutputManager;
         } catch (IOException e) {
-            e.printStackTrace();
+            Toast.makeText(this, "Error occurred!", Toast.LENGTH_LONG).show();
+            //e.printStackTrace();
         }
 
         return super.onStartCommand(intent, flags, startId);
@@ -81,12 +88,10 @@ public class SerialService extends Service implements SerialInputOutputManager.L
     }
 
     synchronized private void bufferData(byte[] data) {
-        Globals.dataBuffer.append(new String(data));
-        if (Globals.dataBuffer.toString().contains("\n")){
-            String dataAsString = Globals.dataBuffer.toString().trim();
+        if(data != null) Globals.dataBuffer.append(new String(data));
 
-            // only for testing purpose
-            Toast.makeText(this, dataAsString, Toast.LENGTH_LONG).show();
+        if (Globals.dataBuffer.toString().endsWith("\n")){
+            String dataAsString = Globals.dataBuffer.toString().trim();
 
             Globals.configState = Configuration.getState(dataAsString);
             Globals.uartData.add(dataAsString);

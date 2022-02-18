@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +23,14 @@ public class MainActivity extends AppCompatActivity {
         mTextView_waiting = findViewById(R.id.page0_autodetection);
 
         mButton_continue.setOnClickListener(v -> {
+            runOnUiThread(() -> { // only for testing purposes
+                try {
+                    Toast.makeText(MainActivity.this, Globals.uartData.get(0), Toast.LENGTH_LONG).show();
+                } catch (Exception e){
+                    Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_LONG).show();
+                }
+            });
+
             switch(Globals.configState){
                 case LOCAL_DATA_FOUND: {
                     Intent localDataIntent = new Intent(MainActivity.this, LocalDataActivity.class);
@@ -30,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 case WIFI_CONFIG_SSID:{
                     Intent wifiConfigIntent = new Intent(MainActivity.this, WifiConfigActivity.class);
+                    startActivity(wifiConfigIntent);
                     break;
                 }
                 default: break;
@@ -41,13 +51,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
         if ("android.hardware.usb.action.USB_DEVICE_ATTACHED".equals(intent.getAction())) {
             mTextView_waiting.setText("Device attached!");
             mButton_continue.setVisibility(View.VISIBLE);
 
-            Intent serialServiceIntent = new Intent(this, SerialService.class);
-            startService(serialServiceIntent);
+            try {
+                Intent serialServiceIntent = new Intent(this, SerialService.class);
+                startService(serialServiceIntent);
+            }catch (Exception exc) {
+                Toast.makeText(this, exc.getMessage(), Toast.LENGTH_LONG).show();
+            }
         }
+        super.onNewIntent(intent);
     }
 }

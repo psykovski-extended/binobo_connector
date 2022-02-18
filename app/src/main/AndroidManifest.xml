@@ -24,6 +24,16 @@
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
             </intent-filter>
         </activity>
+        <activity
+            android:screenOrientation="landscape"
+            android:name=".LocalDataActivity"
+            android:launchMode="singleTask"
+            android:exported="true" />
+        <activity
+            android:screenOrientation="landscape"
+            android:name=".WifiConfigActivity"
+            android:launchMode="singleTask"
+            android:exported="true" />
 
         <meta-data
             android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
@@ -31,6 +41,8 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <service android:name=".SerialService" />
     </application>
 
 </manifest>

@@ -16,5 +16,9 @@ public class Globals {
     public static SerialInputOutputManager serialIOManager;
     public static final Vector<String> uartData = new Vector<>();
     public static Configuration.State configState = Configuration.State.UNKNOWN_STATE;
+    public static StringBuilder dataBuffer = new StringBuilder();
+    public static String SSID;
+    public static String PASSWORD;
+    public static String TOKEN;
 
 }

@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class WifiConfigActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

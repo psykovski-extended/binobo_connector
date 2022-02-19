@@ -9,7 +9,6 @@ import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
-import android.provider.SyncStateContract;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -20,7 +19,6 @@ import com.hoho.android.usbserial.driver.UsbSerialProber;
 import com.hoho.android.usbserial.util.SerialInputOutputManager;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class SerialService extends Service implements SerialInputOutputManager.Listener {

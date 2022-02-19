@@ -3,6 +3,7 @@ package android.io.binobo.connector;
 public class Configuration {
 
     public enum State { // TODO
+        HIT_ENTER_TO_START,
         UNKNOWN_STATE,
         CONFIG_START,
         WIFI_DATA_VALID,
@@ -25,8 +26,9 @@ public class Configuration {
 
     public static State getState (String state) { // TODO
         switch (state) {
+            case "Hit <enter> to start configuration...": return State.HIT_ENTER_TO_START;
             case "[ESP32]: Configuration starts...": return State.CONFIG_START;
-            case "Use local stored config data? [y/n]: ": return State.LOCAL_DATA_FOUND;
+            case "Use local stored config data? [y/n]:": return State.LOCAL_DATA_FOUND;
             case "SSID:": return State.WIFI_CONFIG_SSID;
             case "Token:": return State.TOKEN;
             default: return State.UNKNOWN_STATE;

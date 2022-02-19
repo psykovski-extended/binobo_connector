@@ -88,24 +88,29 @@ public class SerialService extends Service implements SerialInputOutputManager.L
     }
 
     synchronized private void bufferData(byte[] data) {
-        if(data != null) Globals.dataBuffer.append(new String(data));
+        String dataIn = new String(data);
 
-        if (Globals.dataBuffer.toString().endsWith("\n")){
-            String dataAsString = Globals.dataBuffer.toString().trim();
+        for (char c : dataIn.toCharArray()) {
+            Globals.dataBuffer.append(c);
 
-            Globals.configState = Configuration.getState(dataAsString);
-            Globals.uartData.add(dataAsString);
+            if (c == '\n'){
+                String dataAsString = Globals.dataBuffer.toString().trim();
 
-            if (dataAsString.startsWith("[1]")) Globals.SSID = dataAsString.substring(3);
-            else if (dataAsString.startsWith("[2]")) Globals.PASSWORD = dataAsString.substring(3);
-            else if (dataAsString.startsWith("[3]")) Globals.TOKEN = dataAsString.substring(3);
+                Globals.configState = Configuration.getState(dataAsString);
+                Globals.uartData.add(dataAsString);
 
-            Globals.dataBuffer = new StringBuilder();
+                if (dataAsString.startsWith("[1]")) Globals.SSID = dataAsString.substring(3);
+                else if (dataAsString.startsWith("[2]")) Globals.PASSWORD = dataAsString.substring(3);
+                else if (dataAsString.startsWith("[3]")) Globals.TOKEN = dataAsString.substring(3);
+
+                Globals.dataBuffer = new StringBuilder();
+            }
         }
     }
 
     @Override
     public void onRunError(Exception e) {
-        Toast.makeText(this, "Error occurred!", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Error occurred!", Toast.LENGTH_LONG).show();
+        stopSelf();
     }
 }

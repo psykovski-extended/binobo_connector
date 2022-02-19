@@ -138,7 +138,9 @@
         android:textColor="@color/binobo_orange"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/page2_heading" />
+        app:layout_constraintEnd_toEndOf="@+id/page2_heading"
+        app:layout_constraintTop_toBottomOf="@+id/token_sd"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/use_date"
@@ -152,7 +154,9 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/do_not_use_data"
         app:layout_constraintEnd_toStartOf="@+id/do_not_use_data"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="@+id/password_label_sd"
-        app:layout_constraintTop_toTopOf="@+id/do_not_use_data" />
+        app:layout_constraintTop_toTopOf="@+id/do_not_use_data"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

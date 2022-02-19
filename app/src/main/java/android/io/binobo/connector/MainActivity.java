@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button mButton_continue;
@@ -25,13 +28,21 @@ public class MainActivity extends AppCompatActivity {
         mButton_continue.setOnClickListener(v -> {
             runOnUiThread(() -> { // only for testing purposes
                 try {
-                    Toast.makeText(MainActivity.this, Globals.uartData.get(0), Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, Globals.uartData.get(Globals.uartData.size()-1), Toast.LENGTH_LONG).show();
                 } catch (Exception e){
                     Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_LONG).show();
                 }
             });
 
             switch(Globals.configState){
+                case HIT_ENTER_TO_START: {
+                    try {
+                        Globals.port.write("\r".getBytes(StandardCharsets.UTF_8), 100);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                }
                 case LOCAL_DATA_FOUND: {
                     Intent localDataIntent = new Intent(MainActivity.this, LocalDataActivity.class);
                     startActivity(localDataIntent);

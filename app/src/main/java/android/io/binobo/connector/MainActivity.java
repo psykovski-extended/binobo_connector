@@ -9,9 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-
 public class MainActivity extends AppCompatActivity {
 
     private Button mButton_continue;
@@ -35,14 +32,6 @@ public class MainActivity extends AppCompatActivity {
             });
 
             switch(Globals.configState){
-                case HIT_ENTER_TO_START: {
-                    try {
-                        Globals.port.write("\r".getBytes(StandardCharsets.UTF_8), 100);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                }
                 case LOCAL_DATA_FOUND: {
                     Intent localDataIntent = new Intent(MainActivity.this, LocalDataActivity.class);
                     startActivity(localDataIntent);
@@ -56,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 default: break;
             }
         });
-
         mButton_continue.setVisibility(View.INVISIBLE);
     }
 

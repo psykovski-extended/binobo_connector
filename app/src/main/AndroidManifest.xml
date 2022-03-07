@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="android.io.binobo.connector">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -40,6 +43,16 @@
         <activity
             android:screenOrientation="landscape"
             android:name=".WifiConfigActivity"
+            android:launchMode="singleTask"
+            android:exported="true" />
+        <activity
+            android:screenOrientation="landscape"
+            android:name=".CalibrationActivity"
+            android:launchMode="singleTask"
+            android:exported="true" />
+        <activity
+            android:screenOrientation="landscape"
+            android:name=".TokenActivity"
             android:launchMode="singleTask"
             android:exported="true" />
         <meta-data

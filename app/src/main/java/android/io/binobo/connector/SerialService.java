@@ -19,6 +19,7 @@ import com.hoho.android.usbserial.driver.UsbSerialProber;
 import com.hoho.android.usbserial.util.SerialInputOutputManager;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class SerialService extends Service implements SerialInputOutputManager.Listener {
@@ -96,6 +97,14 @@ public class SerialService extends Service implements SerialInputOutputManager.L
 
                 Globals.configState = Configuration.getState(dataAsString);
                 Globals.uartData.add(dataAsString);
+
+                if (Globals.configState == Configuration.State.HIT_ENTER_TO_START) {
+                    try {
+                        Globals.port.write("\r".getBytes(StandardCharsets.UTF_8), 100);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
 
                 if (dataAsString.startsWith("[1]")) Globals.SSID = dataAsString.substring(3);
                 else if (dataAsString.startsWith("[2]")) Globals.PASSWORD = dataAsString.substring(3);
